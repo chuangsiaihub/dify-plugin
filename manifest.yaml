@@ -1,0 +1,53 @@
+version: 0.0.1
+type: plugin
+author: chuangsiaihub
+name: chuangsiai
+created_at: 2025-05-29T11:31:59.339182+08:00
+icon: icon.svg
+label:
+  en_US: 创思大模型安全
+  ja_JP: 创思大模型安全
+  zh_Hans: 创思大模型安全
+  pt_BR: 创思大模型安全
+description:
+  zh_Hans: 创思大模型安全插件，拦截对大模型的恶意输入和越界指令，防止诱导性攻击和非法请求，保障模型运行安全
+  en_US: 创思大模型安全插件，拦截对大模型的恶意输入和越界指令，防止诱导性攻击和非法请求，保障模型运行安全
+  ja_JP: 创思大模型安全插件，拦截对大模型的恶意输入和越界指令，防止诱导性攻击和非法请求，保障模型运行安全
+  pt_BR: 创思大模型安全插件，拦截对大模型的恶意输入和越界指令，防止诱导性攻击和非法请求，保障模型运行安全
+resource: # 资源配置
+  memory: 268435456 # 256MB
+  permission:
+    tool:
+      enabled: false
+    model:
+      enabled: false
+      llm: false
+      text_embedding: false
+      rerank: false
+      tts: false
+      speech2text: false
+      moderation: false
+    node:
+      enabled: false
+    endpoint:
+      enabled: false
+    app:
+      enabled: false
+    storage:
+      enabled: false
+      size: 1024
+plugins: # 插件配置
+  tools:
+    - provider/chuangsiai.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: null
+privacy: PRIVACY.md
+verified: false
