@@ -12,3 +12,7 @@ This plugin provides security tools for the Chuangsiai model, including security
 
 - Security Detection
 - Security Answering（is coming）
+
+### Login Console
+
+- **[Chuangsiai Console](https://console.chuangsiai.com/)**
