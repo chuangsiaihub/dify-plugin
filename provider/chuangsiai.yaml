@@ -3,7 +3,7 @@ identity:
   name: chuangsiai
   label:
     zh_Hans: 创思大模型安全
-    en_US: 创思大模型安全
+    en_US: Chuangsi AI Security
   description:
     zh_Hans: 创思大模型安全插件，拦截对大模型的恶意输入和越界指令，防止诱导性攻击和非法请求，保障模型运行安全
     en_US: Chuangsi AI Security Plugi, intercepts malicious inputs and boundary-violating instructions to AI models, prevents (inductive attacks) and illegal requests, ensuring secure and stable model operation.
