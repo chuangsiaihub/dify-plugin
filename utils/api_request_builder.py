@@ -59,6 +59,7 @@ class ApiRequestBuilder:
             'X-Nonce': nc,
             'Content-Type': 'application/json',
             'Authorization': f"{self.access_key}:{signature}",
+            'X-Referer': 'coze',
         }
 
 

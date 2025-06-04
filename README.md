@@ -1,7 +1,7 @@
 ## Chuangsiai Model Security Plugin
 
 **Author:** chuangsiaihub
-**Version:** 0.0.1
+**Version:** 0.0.2
 **Type:** tool
 
 ### Description
