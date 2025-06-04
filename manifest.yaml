@@ -8,9 +8,8 @@ label:
   zh_Hans: 创思大模型安全
   en_US: Chuangsi LLM Safety
 description:
-  zh_Hans: 创思大模型安全护栏插件，旨在识别和拦截LLM输入与输出中的潜在安全风险，包括涉政敏感、色情、违法违规行为、负面价值导向、辱骂言论及隐私泄露等内容。
-  en_US: The Chuangsi LLM Safety Guardrails Plugin is designed to detect and block potential security risks in both inputs and outputs of large language models (LLMs), including politically sensitive content, explicit material, illegal or non-compliant behavior, harmful value orientation, abusive language, and privacy breaches.
-resource: # 资源配置
+  zh_Hans: 创思大模型安全工具是一款面向大语言模型的内容安全防护系统，旨在识别和拦截LLM输入与输出中的潜在安全风险，包括涉政敏感、色情、违法违规行为、负面价值导向、辱骂言论及隐私泄露等内容。针对存在风险的输入，该工具还支持安全可信代答，助力用户实现大模型系统的安全合规。
+  en_US: The Chuangsi LLM Safety Toolkit is a comprehensive content security solution designed for large language models (LLMs). It is engineered to detect and mitigate potential safety risks in both model inputs and outputs, including politically sensitive content, explicit material, illegal or non-compliant information, harmful value orientation, abusive language, and privacy violations. For high-risk queries, the toolkit also supports secure and trustworthy response generation, empowering users to build LLM systems that are both safe and compliant.
   memory: 268435456 # 256MB
   permission:
     tool:
