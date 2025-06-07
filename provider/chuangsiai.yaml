@@ -9,7 +9,8 @@ identity:
     en_US: The Chuangsi LLM Safety Toolkit is a comprehensive content security solution designed for large language models (LLMs). It is engineered to detect and mitigate potential safety risks in both model inputs and outputs, including politically sensitive content, explicit material, illegal or non-compliant information, harmful value orientation, abusive language, and privacy violations. The tool supports safe and trustworthy large language model capabilities to provide secure fallback responses for user inputs with security risks, assisting users in ensuring the safety and compliance of their LLM systems.
   icon: icon.svg
 tools:
-  - tools/safe_guard.yaml
+  - tools/llm_input_safety_guardrails.yaml
+  - tools/llm_output_safety_guardrails.yaml
 extra:
   python:
     source: provider/chuangsiai.py

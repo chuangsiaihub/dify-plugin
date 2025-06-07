@@ -1,5 +1,5 @@
 identity:
-  name: chuangsi_safe_guardrail # 工具的唯一内部名称
+  name: chuangsi_llm_input_safety_guardrails # 工具的唯一内部名称
   author: chuangsiaihub
   label: # 在 Dify UI 中显示的工具名称 (多语言)
     zh_Hans: 创思大模型安全护栏
@@ -16,12 +16,12 @@ parameters: # 定义工具的输入参数列表
     required: true # 是否必需
     label: # 在 Dify UI 中显示的参数标签 (多语言)
       zh_Hans: 待审查文本内容
-      en_US: Content Awaiting Moderation 
+      en_US: Content Awaiting Moderation
     human_description: # 给人类用户看的参数描述 (多语言)
       zh_Hans: 待审查文本内容
-      en_US: Content Awaiting Moderation 
+      en_US: Content Awaiting Moderation
     llm_description: # 给 LLM 看的参数描述 (指导 Agent 如何填充)
-      待审查文本内容 
+      待审查文本内容
     form: llm # 参数表单类型 ('llm' 或 'form')
   - name: strategy_key
     type: string
@@ -37,4 +37,4 @@ parameters: # 定义工具的输入参数列表
     form: form # 参数表单类型 ('llm' 或 'form')
 extra: # 额外配置
   python:
-    source: tools/safe_guard.py # 指向实现该工具逻辑的 Python 文件
+    source: tools/llm_output_safety_guardrails.py # 指向实现该工具逻辑的 Python 文件
