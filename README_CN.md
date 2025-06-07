@@ -22,8 +22,8 @@
 #### 安装及授权
 
 通过 **Marketplace/Github/本地插件**等方式安装插件，安装完毕后点击“去授权”，确保认证成功。
+![image](https://github.com/user-attachments/assets/e47fa2dc-d12c-46cf-8e33-8cc56ea26200)
 
-![img1](_assets/img1.png)
 
 #### 在 Chatflow 中调用
 
