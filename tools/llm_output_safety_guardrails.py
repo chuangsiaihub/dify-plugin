@@ -7,7 +7,7 @@ from utils.api_request_builder import ApiRequestBuilder
 import requests
 
 
-class SafeGuardTool(Tool):
+class LLMOutputSafetyGuardrailsTool(Tool):
     """
     安全护栏工具类
     """
