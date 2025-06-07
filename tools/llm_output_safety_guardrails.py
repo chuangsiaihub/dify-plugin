@@ -9,7 +9,7 @@ import requests
 
 class LLMOutputSafetyGuardrailsTool(Tool):
     """
-    安全护栏工具类
+    安全护栏输出检测工具类
     """
 
     def _invoke(self, tool_parameters: dict[str, Any]) -> Generator[ToolInvokeMessage, None, None]:
