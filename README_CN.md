@@ -20,10 +20,11 @@
 ### 基本使用示例
 
 #### 安装及授权
-
-通过 **Marketplace/Github/本地插件**等方式安装插件，安装完毕后点击“去授权”，确保认证成功。
+1、登录 **创思大模型安全控制台**，https://console.chuangsiai.com/#/login?redirect=/dashboard/index
+2、获取 **Access Key**和 **Secret Key**, https://console.chuangsiai.com/#/profile/accessKey
+3、通过 **Marketplace**安装插件，安装完毕后点击“去授权”，并输入上述**Access Key**和 **Secret Key**,确保认证成功。
 ![image](https://github.com/user-attachments/assets/e47fa2dc-d12c-46cf-8e33-8cc56ea26200)
-
+![image](https://github.com/user-attachments/assets/482e6db6-bb20-4bbb-9116-9ec7b3586456)
 
 #### 在 Chatflow 中调用
 
