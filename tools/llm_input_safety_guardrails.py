@@ -44,7 +44,7 @@ class LLMInputSafetyGuardrailsTool(Tool):
 
         # 1. 初始化签名工具
         builder = ApiRequestBuilder(access_key, secret_key)
-        URL = "/api/llm/input/safety/v1"          # 接口路径
+        URL = "/api/v1/llm/check-input-safety"          # 接口路径
         BASE_URL = "https://api.chuangsiai.com"
         BODY = { "content": c_content , "strategyKey": strategy_key }  # 请求体内容
         # 2. 生成请求头（自动包含签名和时间戳）
