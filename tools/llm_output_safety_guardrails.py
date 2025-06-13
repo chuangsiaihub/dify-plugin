@@ -33,14 +33,15 @@ class LLMOutputSafetyGuardrailsTool(Tool):
             access_key = self.runtime.credentials["chuangsi_access_key"]
             secret_key = self.runtime.credentials["chuangsi_secret_key"]
         except KeyError:
-            raise Exception("AccessKey 或 SecretKey 未配置或无效。请在插件设置中提供。")
+            # raise Exception("AccessKey 或 SecretKey 未配置或无效。请在插件设置中提供。")
+            raise Exception("AccessKey or SecretKey is not configured or invalid. Please provide it in the plugin settings.")
 
         # 2. 获取工具输入参数
         c_content = tool_parameters.get("c_content", "") # 使用 .get 提供默认值
         strategy_key = tool_parameters.get("strategy_key", "")
 
         if not strategy_key:
-            raise Exception("策略KEY不能为空。请提供有效的策略KEY。")
+            raise Exception("The strategy ID cannot be empty. Please provide a valid strategy ID.")
 
         # 1. 初始化签名工具
         builder = ApiRequestBuilder(access_key, secret_key)

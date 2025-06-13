@@ -14,9 +14,11 @@ class ChuangsiaiProvider(ToolProvider):
         access_key = credentials.get("chuangsi_access_key")
         secret_key = credentials.get("chuangsi_secret_key")
         if not access_key:
-            raise ToolProviderCredentialValidationError("创思 AccessKey 不能为空。")
+            # raise ToolProviderCredentialValidationError("创思 AccessKey 不能为空。")
+            raise ToolProviderCredentialValidationError("AccessKey cannot be empty.")
         if not secret_key:
-            raise ToolProviderCredentialValidationError("创思 SecretKey 不能为空。")
+            # raise ToolProviderCredentialValidationError("创思 SecretKey 不能为空。")
+            raise ToolProviderCredentialValidationError("SecretKey cannot be empty.")
 
         try:
             # 尝试执行一个凭证验证
@@ -40,8 +42,8 @@ class ChuangsiaiProvider(ToolProvider):
                 return
             else:
                 print("❌ 验证错误:", response_data)
-                raise Exception(response_data.get("message", "创思凭证验证失败，未知错误。"))
+                raise Exception(response_data.get("message", "chuangsiai Voucher verification failed, unknown error."))
         except Exception as e:
             print("❌ 验证请求错误:", e)
             # 如果 API 调用失败，说明凭证很可能无效
-            raise ToolProviderCredentialValidationError(f"创思 凭证验证失败: {e}")
+            raise ToolProviderCredentialValidationError(f"chuangsiai Voucher verification failed: {e}")
