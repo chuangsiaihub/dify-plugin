@@ -2,9 +2,7 @@ from collections.abc import Generator
 from typing import Any
 from dify_plugin import Tool
 from dify_plugin.entities.tool import ToolInvokeMessage
-
-from utils.api_request_builder import ApiRequestBuilder 
-import requests
+from chuangsiai_sdk import  ChuangsiaiClient
 
 
 class LLMOutputSafetyGuardrailsTool(Tool):
@@ -44,20 +42,10 @@ class LLMOutputSafetyGuardrailsTool(Tool):
             raise Exception("The strategy ID cannot be empty. Please provide a valid strategy ID.")
 
         # 1. 初始化签名工具
-        builder = ApiRequestBuilder(access_key, secret_key)
-        URL = "/api/v1/llm/check-output-safety"          # 接口路径
-        BASE_URL = "https://api.chuangsiai.com"
-        BODY = { "content": c_content , "strategyKey": strategy_key }  # 请求体内容
-        # 2. 生成请求头（自动包含签名和时间戳）
-        headers = builder.build_headers('POST', URL, BODY)
-        # 3. 发送请求（发送请求的body参数必须和参加签名的body一致）
+        client = ChuangsiaiClient(access_key=access_key,secret_key=secret_key)
         try:
-            response = requests.post(
-                f"{BASE_URL}{URL}",
-                json=BODY,
-                headers=headers
-            )
-            response_data = response.json()
+            # 2. 调用接口
+            resp = client.output_guardrail(strategy_id=strategy_key, content=c_content)
             # raise Exception(f"模拟调用安全护栏失败")
         except Exception as e:
             # 如果库调用失败，抛出异常
@@ -79,4 +67,4 @@ class LLMOutputSafetyGuardrailsTool(Tool):
         # # 变量输出 (用于工作流)
         # yield self.create_variable_message("variable_name", "variable_value")
         # 4. 返回结果
-        yield self.create_json_message(response_data)
+        yield self.create_json_message(resp)

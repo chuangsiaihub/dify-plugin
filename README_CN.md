@@ -2,7 +2,7 @@
 
 **作者：** Chuangsi AI
 
-**版本：** 0.0.3
+**版本：** 0.0.4
 
 **类型：** tool
 
@@ -20,10 +20,10 @@
 
 **灵活配置**：支持自定义安全关键词、风险问答库与兜底回复，便于快速调整和管控安全策略。
 
-
 ### 基本使用示例
 
 #### 安装及授权
+
 1、登录 **创思大模型安全控制台**，https://console.chuangsiai.com/#/login?redirect=/dashboard/index
 
 2、获取 **Access Key**和 **Secret Key**， https://console.chuangsiai.com/#/profile/accessKey
@@ -31,27 +31,29 @@
 3、通过 **Marketplace**安装插件，安装完毕后点击“去授权”，并输入上述**Access Key**和 **Secret Key**，确保认证成功。
 ![image](https://github.com/user-attachments/assets/e47fa2dc-d12c-46cf-8e33-8cc56ea26200)
 
-
 #### 创建安全策略
-1、在**创思大模型安全控制台**，创建安全策略，获取**策略ID**
+
+1、在**创思大模型安全控制台**，创建安全策略，获取**策略 ID**
 ![image](https://github.com/user-attachments/assets/7242c7c9-a0fc-4785-86cc-dad029d8da63)
 
 2、点击上述创建的**安全策略**进入策略详情页，点击**配置**按钮，可以配置风险审查项的启用状态，配置用户自定义的安全审查词库、安全代答红线库等。
 ![image](https://github.com/user-attachments/assets/d6cf7f73-223b-4fa7-8239-ea1f352574f6)
 
-
 #### 在 Chatflow 中调用
-**Chatflow简易示例**：分别调用插件对输入和输出进行内容安全审查，并搭配“条件分支”来进行判断。如果检测结果suggestion字段为"block"，则采用兜底的Wording进行作答，否则继续工作流或者输出LLM回答结果。
+
+**Chatflow 简易示例**：分别调用插件对输入和输出进行内容安全审查，并搭配“条件分支”来进行判断。如果检测结果 suggestion 字段为"block"，则采用兜底的 Wording 进行作答，否则继续工作流或者输出 LLM 回答结果。
 ![image](https://github.com/user-attachments/assets/bce0edb5-3ec6-497e-8206-b95a385bd070)
 
 **输入和输出工具调用示例如下**：
 ![image](https://github.com/user-attachments/assets/6954a8a6-7661-481a-9e0f-5ce66a8d8c9a)
 
 具体参数说明如下：
+
 - 待审查内容：大模型输入 or 大模型回答内容
-- 策略ID：上一部分介绍的在创思大模型安全控制台创建完安全策略后，获取的**策略ID**
+- 策略 ID：上一部分介绍的在创思大模型安全控制台创建完安全策略后，获取的**策略 ID**
 
 简易示例中，提取输入/回答安全审查处理建议节点代码如下：
+
 ```python
 def main(arg1: str) -> dict:
     first_level_suggestion = arg1[0].get("suggestion")
@@ -60,8 +62,8 @@ def main(arg1: str) -> dict:
     }
 ```
 
-
 #### 在 Agent 中调用
+
 以下是一个维基百科搜索安全审查智能体的示例，该智能体目标是对用户搜索词和搜索结果进行安全审查。
 
 ```
@@ -78,13 +80,18 @@ def main(arg1: str) -> dict:
 如果返回结果 `suggestion` 字段为 `review` 时，则直接返回“维基百科检索的内容存在有潜在风险，请仔细甄别后采用。”+搜索返回结果。
 如果返回结果 `suggestion` 字段为 `pass` 时，正常返回搜索结果即可。
 ```
+
 ![image](https://github.com/user-attachments/assets/d86383ee-83e5-41ae-9919-c48f55fea778)
 
 ### 功能演示
+
 ![image](https://github.com/user-attachments/assets/d1d2ee0e-71fa-44bd-8aab-50dab9db889d)
 
-
 ## Changelog
+
+### v0.0.4
+
+- 优化签名工具，使用 chuangsiai-sdk
 
 ### v0.0.3
 
