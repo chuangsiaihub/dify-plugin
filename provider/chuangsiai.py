@@ -22,7 +22,8 @@ class ChuangsiaiProvider(ToolProvider):
         try:
             # 尝试执行一个凭证验证
             # 1. 初始化签名工具
-            client = ChuangsiaiClient(access_key=access_key,secret_key=secret_key)
+            headers={ "X-Referer":"dify" }
+            client = ChuangsiaiClient(access_key=access_key,secret_key=secret_key,headers=headers)
             # 2. 调用 验证API
             data =  client.verify()
             # print("验证:", response_data)

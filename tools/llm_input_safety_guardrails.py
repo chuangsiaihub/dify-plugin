@@ -17,8 +17,8 @@ class LLMInputSafetyGuardrailsTool(Tool):
 
         Args:
             tool_parameters: 一个包含工具输入参数的字典:
-                - c_content (str):  需要检测的内容。
-                - strategy_key (str):  安全护栏策略KEY。
+                - content (str):  需要检测的内容。
+                - strategy_id (str):  安全护栏策略标识。
 
         Yields:
             ToolInvokeMessage: 包含安全护栏检测结果的消息。
@@ -35,17 +35,18 @@ class LLMInputSafetyGuardrailsTool(Tool):
             raise Exception("AccessKey or SecretKey is not configured or invalid. Please provide it in the plugin settings.")
 
         # 2. 获取工具输入参数
-        c_content = tool_parameters.get("c_content", "") # 使用 .get 提供默认值
-        strategy_key = tool_parameters.get("strategy_key", "")
+        content = tool_parameters.get("content", "") # 使用 .get 提供默认值
+        strategy_id = tool_parameters.get("strategy_id", "")
 
-        if not strategy_key:
+        if not strategy_id:
             raise Exception("The strategy ID cannot be empty. Please provide a valid strategy ID.")
 
         # 1. 初始化签名工具
-        client = ChuangsiaiClient(access_key=access_key,secret_key=secret_key)
+        headers={ "X-Referer":"dify" }
+        client = ChuangsiaiClient(access_key=access_key,secret_key=secret_key,headers=headers)
         try:
             # 2. 调用接口
-            resp = client.input_guardrail(strategy_id=strategy_key, content=c_content)
+            resp = client.input_guardrail(strategy_id=strategy_id, content=content)
             # raise Exception(f"模拟调用安全护栏失败")
         except Exception as e:
             # 如果库调用失败，抛出异常
